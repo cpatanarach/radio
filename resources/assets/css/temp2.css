@@ -1,0 +1,76 @@
+.well{
+	background-color:#ffffff ;
+	border-color:rgba(47, 193, 166, 0.96) ;
+}
+body{
+background-color:rgba(124, 245, 3, 0.05) ;
+
+}
+a {
+    color: #8CC152;
+    text-decoration: none;
+    font-weight:700;
+}
+.menu-left>li>a:hover,.menu-left>li>a:active {
+	color:#ffffff;
+	font-weight: 900;
+	font-size: 16px;
+
+} 
+.menu-left>li>a:focus{
+	color: #8CC152;
+}
+h3,h4 {
+	color: #3BAFDA;
+	font-weight: 700;
+}
+p {
+	color: #10B303;
+}
+/*.panel{
+	    background-color: #10B303;
+	    border-color: #10B303;
+
+}*/
+/*.menu-left,.well-menu-left{
+	background-color: #10B303;
+
+}*/
+.nav>li>a:hover{
+
+	background-color:#8CC152; 
+}
+.nav-pills>li.active>a{
+
+	background-color: #10B303;
+}
+.tab-color{
+	background-color: #10B303;
+    border-color: #10B303;
+}
+.navbar-color{
+}
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+    border-color: #10B303;
+}
+
+.navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus {
+	    background-color: #8CC152;
+
+}
+.navbar-inverse .navbar-toggle {
+    border-color: #ffffff;
+    }
+ .navbar-inverse .navbar-nav>li>a,.navbar-inverse .navbar-brand,.navbar-brand,.navbar-brand:hover{
+ 	color: #ffffff;
+ }
+
+ audio#player {
+    margin-top: 10px;
+}
+.home{
+	border:0px;
+	}
+.navbar{
+	border-radius: 0px 0px 4px 4px;
+	}
