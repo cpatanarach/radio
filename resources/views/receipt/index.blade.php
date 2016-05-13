@@ -3,74 +3,29 @@
 @section('content')       
        
             <div class="col-sm-6">
-
+                  <div class="panel panel-default">
+                    <div class="fa-top">
                       <center>
                           <IFRAME name="flash" src="https://www.userpanel.net/radio/player.php?bgcolor=&fontcolor=&player=7&dj=&listener=&bitrate=&song=yes&ipaddress=6&port=7072&port80=&encoding=utf8" width=350 height=150 frameborder=0 scrolling=no></IFRAME>
                       </center>
+                      </div>
+                    </div>
 
-                  <div class="container col-sm-12">
-                    <div class="panel panel-success active">
-                    <div class="panel-heading"><span class="glyphicon glyphicon-list-alt fa-btn"></span><strong>แจ้งใบเสร็จ</strong></div>
-                      <div class="panel-body">
-                        <form class="form-horizontal" role="form" method="POST" action="{{ url('/send_receipt') }}">
+                  <div class="panel panel-default">
+                        <form class="form-horizontal fa-top" role="form" method="POST" action="{{ url('/send_receipt') }}" files=true enctype="multipart/form-data">
                         {!! csrf_field() !!}
-
-                        <div class="form-group{{ $errors->has('no') ? ' has-error' : '' }}">
-                            <label class="col-md-3 control-label">ใบเสร็จเลขที่</label>
-                            <div class="col-md-8">
-                                <input type="text" class="form-control" name="no" placeholder="หมายเลขใบเสร็จ" value="{{ old('no') }}">
-
-                                @if ($errors->has('no'))
-                                    <span class="help-block text-left">
-                                        <strong>{{ $errors->first('no') }}</strong>
-                                    </span>
-                                @endif
-                            </div>                 
-                        </div>
-
-                        <div class="form-group{{ $errors->has('date') ? ' has-error' : '' }}">
-                            <label class="col-md-3 control-label">วันที่</label>
-                            <div class="col-md-5">
-                                <input type="date" class="form-control" name="date" placeholder="[ วันที่ออกใบเสร็จ ]" value="{{ old('date') }}">
-                                @if ($errors->has('date'))
-                                    <span class="help-block text-left">
-                                        <strong>{{ $errors->first('date') }}</strong>
-                                    </span>
-                                @endif
-                            </div>                 
-                        </div>
-
-                        <div class="form-group{{ $errors->has('customer') ? ' has-error' : '' }}">
-                            <label class="col-md-3 control-label">ลูกค้า</label>
-                            <div class="col-md-8">
-                                <input type="text" class="form-control" name="customer" placeholder="นามลูกค้า" value="{{ old('customer') }}">
-
-                                @if ($errors->has('customer'))
-                                    <span class="help-block text-left">
-                                        <strong>{{ $errors->first('customer') }}</strong>
-                                    </span>
-                                @endif
-                            </div>                 
-                        </div>
-
-                        <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }}">
-                            <label class="col-md-3 control-label">ที่อยู่</label>
-                            <div class="col-md-8">
-                                <textarea class="form-control" name="address" rows="5" placeholder="ที่อยู่ในใบเสร็จ">{{old('address')}}</textarea>
-
-                                @if ($errors->has('address'))
-                                    <span class="help-block text-left">
-                                        <strong>{{ $errors->first('address') }}</strong>
-                                    </span>
-                                @endif
-                            </div>                 
-                        </div>
+                        @if(Session::has('success'))
+                            <div class="form-group"><div class="col-sm-8 col-sm-push-3">
+                                <div class="alert alert-success" role="alert"><span class="glyphicon glyphicon-ok"></span>&nbsp&nbsp{{ Session::get('success') }}
+                                </div>
+                            </div></div>
+                        @endif
 
                         <div class="form-group{{ $errors->has('province') ? ' has-error' : '' }}">
                             <label class="col-md-3 control-label">จังหวัด</label>
                             <div class="col-md-8">
                                 <select class="form-control" name="province">
-                                    <option value="" selected>--------- เลือกจังหวัด ---------</option>
+                                    <option value="">--------- เลือกจังหวัด ---------</option>
                                     <option value="กรุงเทพมหานคร">กรุงเทพมหานคร</option>
                                     <option value="กระบี่">กระบี่ </option>
                                     <option value="กาญจนบุรี">กาญจนบุรี </option>
@@ -158,27 +113,12 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('total') ? ' has-error' : '' }}">
-                            <label class="col-md-3 control-label">รวม</label>
-                            <div class="col-md-5">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-tag"></i></span>
-                                <input type="number" class="form-control" name="total" placeholder="ราคารวม" value="{{ old('total') }}">
-                            </div>
-
-                                @if ($errors->has('total'))
-                                    <span class="help-block text-left">
-                                        <strong>{{ $errors->first('total') }}</strong>
-                                    </span>
-                                @endif
-                            </div>                 
-                        </div>
-
                         <div class="form-group{{ $errors->has('file') ? ' has-error' : '' }}">
-                        
-                            <div class="col-md-8 col-sm-push-3">
-                                <input type="file" class="form-control" name="file" placeholder="นามลูกค้า" value="{{ old('file') }}">
-
+                            <label class="col-md-3 control-label">แนบไฟล์</label>
+                            <div class="col-md-8">
+                              
+                                <input type="file" class="filestyle" name="file" value="{{ old('file') }}" data-buttonText="&nbspเลือกไฟล์" data-placeholder="Microsoft Word Document" accept=".doc,.docx">
+                          
                                 @if ($errors->has('file'))
                                     <span class="help-block text-left">
                                         <strong>{{ $errors->first('file') }}</strong>
@@ -196,34 +136,16 @@
                             </div>
                         </div>
 
-                        </form>                        
-                      </div>
-                    </div>
+                        <div class="form-group">
+                            <label class="col-sm-8 col-sm-push-3 text-warning text-left"><span class="glyphicon glyphicon-exclamation-sign"></span> หมายเหตุ</label>
+
+                            <label class="col-sm-8 col-sm-push-3 text-justify">ใบยืนยันออกอากาศควรแจ้งชื่อที่อยู่สถานีให้เรียบร้อย เปิดสปอตอะไร กี่ครั้ง ออกอากาศเวลาเท่าไหร่ ถ่ายรูปใบเสร็จพร้อมลายเซ็น ชื่อที่อยู่ ตราประทับให้เรียนร้อย </label>
+                            <label class="col-sm-8 col-sm-push-3 text-left">ตัวอย่าง&nbsp<a href="#" class="label-control"><<คลิก>></a></label>
+                        </div>   
+
+                        </form>  
+
                   </div>
-                  <!--Receipt has been send-->
-                      <div class="container col-sm-12">
-                        
-                          <table class="table table-striped">
-                              <tr>
-                                <td><strong>วันที่</strong></td><td><strong>เลขที่ใบเสร็จ</strong></td><td><strong>สถานะ</strong></td>
-                              </tr>
-                            @forelse($user as $user_receipt)
-                              <tr>
-                                <td>{{$user_receipt->date}}</td><td>{{$user_receipt->no}}</td>
-                                @if($user_receipt->read)
-                                  <td><span class="glyphicon glyphicon-eye-open"></span></td>
-                                @else
-                                  <td><span class="glyphicon glyphicon-eye-close"></span></td>
-                                @endif
-                              </tr>                    
-                            @empty
-                              <tr>
-                                <td colspan="3" class="text-warning">ไม่พบใบเสร็จที่คุณแจ้งไว้</td>
-                              </tr>
-                            @endforelse
-                            </table>
-                          
-                      </div>
             </div>
             <div class="col-sm-3 well">
               <div class="thumbnail">
