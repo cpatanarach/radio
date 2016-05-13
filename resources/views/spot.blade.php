@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('content')          
-       
-            <div class="col-sm-9 ">
+@section('content')     
+
+<div class="col-sm-9 ">
       <div class="row">
         <div class="col-sm-12">
           <div class="row">
@@ -14,13 +14,19 @@
         </div>
         </div>
               <div class="panel panel-default text-left ">
-                <div class="panel-body"><!-- InstanceBeginEditable name="content" --><h3>สัมฤทธิ์ ชัยบัณฑิต</h3>
-                  <p>นักจัดรายการชื่อดังเมืองอีสาน ร่วมกับศุนย์ข่าวเดลินิวส์ รายการอีสานไข่ข่าวและรายการตอกไข่ใส่ข่าว วันจันทร์-อาทิตย์ เวลา 08:00-09:00 และ 12:0014:00</p>
-                  <h4>แจ้งข่าวด่วน</h4>
-                  <p> เหตุบ้านการเมือง ถามไถ่ ร้องทุกข์ ปัญหาชีวิต ตอบทุกคำถามโดยพ่อใหญ่สัมฤทธิ์และทีมงาน</p>
-                  <p>ติดต่อสอบถาม โทร 088-3528047,087-1325747 <br>
-                    ID:Line cc0883528047 <br>
-                    Email: pcb.idol@windowslive.com </p><!-- InstanceEndEditable --> 
+                <div class="panel-body"><!-- InstanceBeginEditable name="content" -->
+                <div class="container">
+	<div class="row">
+		<h3>ดาวน์โหลดสปอตและทะเบียนยาด่านล่างค่ะ</h3>
+        <p> <a class="btn btn-primary  glyphicon glyphicon-file" href="{{url('../resources/assets/file/file.rar')}}">สปอตโฆษณา</a>  </p>
+       <p> <a class="btn btn-primary  glyphicon glyphicon-file" href="{{url('../resources/assets/file/01.rar')}}">ใบอนุญาตให้โฆษณายาทางสื่อทั่วไป</a>  </p>
+       
+        
+       <p>ติดต่อสอบถาม โทร 088-3528047,087-1325748</p>
+        <p>ID:Line cc0883528048</p>
+        <p>Email: pcb.idol@windowslive.com</p>
+	</div>
+</div><!-- InstanceEndEditable --> 
                 
                 
                 
@@ -34,7 +40,7 @@
   <a href="#" class="list-group-item  tab-color">
     ผู้ใช้ที่ออนไลน์
   </a> </thead>-->
-        <tr><td>
+  			<tr><td>
             <div class="list-group">
             
   <a href="#" class="list-group-item glyphicon glyphicon-user  text-left"> moo</a>
@@ -74,6 +80,8 @@
         </div>
       </div>-->
     </div>
+
+
 @endsection  
 <!-- Script -->
 @section('script')

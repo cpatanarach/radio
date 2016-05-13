@@ -30,3 +30,22 @@ Route::group(['middleware' => 'web'], function () {
 	Route::post('/update_profile', 'ProfileController@update');
 	Route::post('/send_receipt', 'ReceiptController@store');
 });
+
+Route::get('/spot',function(){
+	return view('spot');
+});
+Route::get('/linkradio',function(){
+	return view('linkradio');
+});
+Route::get('/radiostation',function(){
+	return view('radiostation');
+});
+Route::get('/product',function(){
+	return view('product');
+});
+Route::get('/map',function(){
+	return view('map');
+});
+Route::get('/contact',function(){
+	return view('contact');
+});
