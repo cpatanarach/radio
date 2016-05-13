@@ -27,7 +27,7 @@ class AuthController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/verify';
+    protected $redirectTo = '/';
     /**
      * Create a new authentication controller instance.
      *
@@ -80,7 +80,7 @@ class AuthController extends Controller
             'lastname' => $data['lastname'],
             'address' => $data['address'],
             'phone' => $data['phone'],
-            'type' => $data['type'],
+            'type' => 'user',
         ]);
     }
 }

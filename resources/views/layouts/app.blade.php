@@ -12,17 +12,6 @@
     <link rel="stylesheet" href="{{url('../resources/assets/css/jasny-bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{url('../resources/assets/css/temp2.css')}}">
 
-    <style>
-
-        .fa-btn {
-            margin-right: 6px;
-        }
-        footer {
-            background-color: #555;
-            color: white;
-            padding: 15px;
-        }
-    </style>
 </head>
 <body id="app-layout">
     <nav class="navbar navbar-inverse tab-color">
@@ -136,6 +125,7 @@
     <script src="{{url('../resources/assets/js/jasny-bootstrap.min.js')}}"></script> 
     <!-- FormHelper -->
     <script src="{{url('../resources/assets/formhelper/bootstrap-formhelpers-phone.js')}}"></script> 
+    <script src="{{url('../resources/assets/formhelper/bootstrap-filestyle.min.js')}}"></script>
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
     @yield('script')
 </body>

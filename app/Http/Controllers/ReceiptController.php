@@ -12,36 +12,22 @@ use Validator;
 
 class ReceiptController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
     protected function validator(array $data)
     {
         return Validator::make($data, [         
-            'no'=>'required|max:16|min:4|unique:receipts',
-            'date'=>'required',
-            'customer'=>'required|max:32',
-            'address'=>'required|max:255|min:10',
             'province'=>'required',
-            'total'=>'required|numeric|max:2000000',
             'file'=>'required',
         ],[
             'required'=>'ข้อมูลที่จำเป็น',
-            'max'=>'ข้อมูลยาวเกินไป',
-            'min'=>'ข้อมูลสั้นเกินไป',
-            'total.max'=>'ยอดเงินสูงเกินไป',
             'file.required'=>'คุณยังไม่ได้เลือกไฟล์',
         ]);
     }
     public function index()
     {
-        $user = User::findOrFail(Auth::user()->id)->receipt;
+        $user='';
+        if(Auth::check()){
+            $user = User::findOrFail(Auth::user()->id)->receipt;
+        }        
         return view('receipt.index')->with('receipt',1)->with('user',$user);
     }
     public function create()
@@ -59,17 +45,23 @@ class ReceiptController extends Controller
     {
         $errors = $this->validator($request->all());
         if ($errors->passes()) {
-            $user_id = Auth::user()->id;
+            $user_id = 0;
+            if(Auth::check()){
+                $user_id = Auth::user()->id;
+            }           
             Receipt::create([
-                'no'=> $request->no,
-                'date'=> $request->date,
-                'customer'=> $request->customer,
-                'address'=> $request->address,
                 'province'=> $request->province,
-                'total'=> $request->total,
+                'file'=> 'draft',
+                'path'=> 'draft',
                 'user_id'=> $user_id,
-                'read'=> 0,
-            ]);
+            ]);$receipt = Receipt::all()->last();
+            $Path = base_path('receipt');
+            $extendsion = $request->file('file')->getClientOriginalExtension();
+            $file = 'receipt'.$receipt->id.'_'.$receipt->created_at->format('Y-m-d').'.'.$extendsion;
+            $request->file('file')->move($Path,$file);
+            $receipt->file = $file;
+            $receipt->path = $Path;
+            $receipt->save();
             return redirect()->back()->with('success','ระบบได้บันทึกข้อมูลแล้ว');
         }else{
             return redirect()->back()->withErrors($errors)->withInput();
