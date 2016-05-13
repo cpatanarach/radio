@@ -86,16 +86,16 @@
             <div class="col-sm-3 well well-menu-left"> 
 
                 <ul class="nav nav-pills nav-stacked menu-left">
-                    <li @if(!empty($home)) class="active" @endif><a class="text-left glyphicon glyphicon-home" href="{{ url('/') }}">Home</a></li>
-                    <li @if(!empty($receipt)) class="active" @endif><a class="text-left glyphicon glyphicon-paperclip" href="{{ url('/receipt') }}">แจ้งส่งใบเสร็จรับงิน</a></li>
-                    <li><a class="text-left glyphicon glyphicon-signal" href="#">แจ้งปัณหาการลิ้งสัญญาณ</a></li>
-                    <li><a class="text-left glyphicon glyphicon-bullhorn" href="#">แจ้งข่าวประชาสัมพันธ์</a></li>
-                    <li @if(!empty($spot)) class="active" @endif><a class="text-left glyphicon glyphicon-expand" href="{{url('/spot')}}">โหลดสปอต&ทะเบียนยา</a></li>
-                    <li @if(!empty($linkradio)) class="active" @endif><a class="text-left glyphicon glyphicon-link" href="{{url('/linkradio')}}">URL ลิ้งสัญญาณ</a></li>
-                    <li @if(!empty($radiostation)) class="active" @endif><a class="text-left glyphicon glyphicon-headphones" href="{{url('/radiostation')}}">สถานีวิทยุในเครือข่าย</a></li>
-                    <li><a class="text-left glyphicon glyphicon-shopping-cart" href="#">ผลิตภัณท์ตู้ฟักไข่</a></li>
-                    <li><a class="text-left glyphicon glyphicon-map-marker" href="#">แผนที่ตั้งสถานี</a></li>
-                    <li @if(!empty($contact)) class="active" @endif><a class="text-left glyphicon glyphicon-phone-alt" href="{{ url('/contact') }}">ติดต่อเรา</a></li>
+                    <li @if(!empty($home)) class="active" @endif><a class="text-left glyphicon glyphicon-home" href="{{ url('/') }}"> Home</a></li>
+                    <li @if(!empty($receipt)) class="active" @endif><a class="text-left glyphicon glyphicon-paperclip" href="{{ url('/receipt') }}"> แจ้งส่งใบเสร็จรับงิน</a></li>
+                    <li><a class="text-left glyphicon glyphicon-signal" href="#"> แจ้งปัณหาการลิ้งสัญญาณ</a></li>
+                    <li><a class="text-left glyphicon glyphicon-bullhorn" href="#"> แจ้งข่าวประชาสัมพันธ์</a></li>
+                    <li @if(!empty($spot)) class="active" @endif><a class="text-left glyphicon glyphicon-expand" href="{{url('/spot')}}"> โหลดสปอต&ทะเบียนยา</a></li>
+                    <li @if(!empty($linkradio)) class="active" @endif><a class="text-left glyphicon glyphicon-link" href="{{url('/linkradio')}}"> URL ลิ้งสัญญาณ</a></li>
+                    <li @if(!empty($radiostation)) class="active" @endif><a class="text-left glyphicon glyphicon-headphones" href="{{url('/radiostation')}}"> สถานีวิทยุในเครือข่าย</a></li>
+                    <li><a class="text-left glyphicon glyphicon-shopping-cart" href="#"> ผลิตภัณท์ตู้ฟักไข่</a></li>
+                    <li><a class="text-left glyphicon glyphicon-map-marker" href="#"> แผนที่ตั้งสถานี</a></li>
+                    <li @if(!empty($contact)) class="active" @endif><a class="text-left glyphicon glyphicon-phone-alt" href="{{ url('/contact') }}"> ติดต่อเรา</a></li>
                 </ul>
                 <div class="well">
                     <h5>ลิ้งที่เกี่ยวข้อง</h5>
