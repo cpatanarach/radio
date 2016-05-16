@@ -74,3 +74,14 @@ p {
 .navbar{
 	border-radius: 0px 0px 4px 4px;
 	}
+.fa-btn {
+            margin-right: 6px;
+        }
+footer {
+            background-color: #555;
+            color: white;
+            padding: 15px;
+        }
+.fa-top {
+	margin-top: 20px;
+}

@@ -14,14 +14,10 @@ class CreateReceiptsTable extends Migration
     {
         Schema::create('receipts', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('no',16)->unique();
-            $table->date('date');
-            $table->string('customer',32);
-            $table->string('address',255);
             $table->string('province',32);
-            $table->integer('total');
+            $table->string('file',32);
+            $table->string('path',64);
             $table->integer('user_id');
-            $table->boolean('read');
             $table->timestamps();
         });
     }

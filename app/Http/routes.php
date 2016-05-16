@@ -15,8 +15,10 @@ Route::group(['middleware' => 'web'], function () {
 	Route::auth();
 	// GET Route
 	Route::get('/', 'HomeController@index');
+
 	Route::get('/verify', 'HomeController@verify');
 	Route::get('/verifyCode', 'HomeController@verifyCode');
+	
 	Route::get('/prifile/{id}', 'ProfileController@index');
 	Route::get('/security/{id}', 'ProfileController@security');
 	Route::get('/profile/{id}', 'ProfileController@index');
